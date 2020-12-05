@@ -4,10 +4,7 @@
 # @Author  : Shaniqua Qiu
 # @File    : 659. 分割数组为连续子序列.py
 
-import heapq
-from collections import defaultdict
-from typing import List
-
+# 2020-12-04 题目
 # 给你一个按升序排序的整数数组 num（可能包含重复数字），请你将它们分割成一个或多个子序列，其中每个子序列都由连续整数组成且长度至少为 3 。
 # 如果可以完成上述分割，则返回 true ；否则，返回 false 。
 
@@ -17,12 +14,17 @@ from typing import List
 # 并且堆中的每个元素都符合公式heap[k] <= heap[k*2+1]和 heap[k] <= heap[k*2+2], 其中heap[k]是父节点,
 # 而heap[k*2+1]和heap[k*2+2]是heap[k]的子节点, 父节点永远小于等于它自己的子节点。
 # heapq.heappop() 函数弹出堆中最小值
+# 知识盲区：https://www.weshallneversurrender.com/python-heapq-heappush/
 
 # defaultdict接受一个工厂函数作为参数，当key不存在时，返回的是工厂函数的默认值
 
+import heapq
+from collections import defaultdict
+from typing import List
 
-# 每遍历一个数，将该数加入能加入的长度最短的序列中，不能加入序列则新建一个序列；然后更新字典
+
 class Solution:
+    # 每遍历一个数，将该数加入能加入的长度最短的序列中，不能加入序列则新建一个序列；然后更新字典
     def isPossible(self, nums: List[int]) -> bool:
         chains = defaultdict(list)
 

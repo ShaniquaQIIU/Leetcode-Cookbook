@@ -1,0 +1,4 @@
+# yum install postgresql-devel 依赖
+pygresql==5.1
+pymysql==0.9.3
+pyhive==0.6.2

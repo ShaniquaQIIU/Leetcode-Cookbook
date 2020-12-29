@@ -24,4 +24,4 @@ for k1, v1 in hmap.items():
             print(ip_ads)
             count += 1
 
-print(count)
+print("不重复的ip地址数：", count)

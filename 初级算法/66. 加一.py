@@ -36,15 +36,21 @@ class Solution1:
 
 class Solution2:
     def plusOne(self, digits: List[int]) -> List[int]:
-        for i in range(len(digits), 0, -1):
-            if digits[i - 1] == 9:
-                digits[i - 1] = 0
-                if i == 1:  # 如果满十进位到数组第一个，则数组需要增加一位
+        for i in range(len(digits) - 1, -1, -1):
+            if digits[i] == 9:
+                digits[i] = 0
+                if i == 0:  # 如果满十进位到数组第一个，则数组需要增加一位
                     digits = [1] + digits
             else:
-                digits[i - 1] += 1  # 不等于9就终止循环结束
+                digits[i] += 1  # 不等于9就终止循环结束
                 break
         return digits
+
+
+# 2021-05-13
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        return list(map(int, list(str(int(''.join(map(str, digits))) + 1))))
 
 
 if __name__ == "__main__":

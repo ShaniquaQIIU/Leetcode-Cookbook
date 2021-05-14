@@ -10,3 +10,22 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = ''.join(filter(str.isalnum, s)).lower()
         return s == s[::-1]
+
+# 2021-05-14
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = s.lower()
+        left, rigth = 0, len(s)-1
+        while left<=rigth:
+            if not s[left].isalnum():
+                left += 1
+                continue  # 不用continue继续执行的话，多个连续的符号无法忽略
+            if not s[rigth].isalnum():
+                rigth -= 1
+                continue
+            if s[left] == s[rigth]:
+                left += 1
+                rigth -= 1
+            else:
+                return False
+        return True

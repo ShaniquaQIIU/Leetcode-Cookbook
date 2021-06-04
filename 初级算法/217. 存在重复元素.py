@@ -28,3 +28,15 @@ class Solution:
                 return True
             dic[i] = 1
         return False
+
+# 2021-06-04
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+        n = len(nums)
+        if n <= 1:
+            return False
+        for i in range(n-1):
+            if nums[i] ^ nums[i+1] == 0:
+                return True
+        return False

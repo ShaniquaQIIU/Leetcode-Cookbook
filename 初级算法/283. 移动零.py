@@ -39,3 +39,19 @@ class Solution:
                 nums.pop(idx)
                 nums.append(0)
                 zero_count+=1
+
+
+# 2021-06-07
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        i, j, size = 0, 0, len(nums)
+        for i in range(size):
+            if nums[i] != 0:
+                nums[j] = nums[i]
+                j +=1
+        while j< size:
+            nums[j] = 0
+            j +=1

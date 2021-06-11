@@ -5,13 +5,16 @@
 # @File    : 94. 二叉树的中序遍历.py
 
 # 给定一个二叉树的根节点 root ，返回它的 中序 遍历。
+from typing import List
+
 
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 # 中序遍历 左子树->根节点->右子树
 class Solution:

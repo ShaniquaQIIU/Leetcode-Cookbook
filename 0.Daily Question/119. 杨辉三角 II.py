@@ -4,7 +4,7 @@
 # @Author  : Shaniqua Qiu
 # @File    : 119. 杨辉三角 II.py
 
-# 2021-02-12 每日一题
+# 2021-02-12 0.Daily Question
 # 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
 from typing import List
 

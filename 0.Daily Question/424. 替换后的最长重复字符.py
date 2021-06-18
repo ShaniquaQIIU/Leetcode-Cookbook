@@ -4,7 +4,7 @@
 # @Author  : Shaniqua Qiu
 # @File    : 424. 替换后的最长重复字符.py
 
-# 2021-02-02 每日一题
+# 2021-02-02 0.Daily Question
 from collections import defaultdict
 
 

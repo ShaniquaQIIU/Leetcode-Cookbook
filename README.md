@@ -1,6 +1,8 @@
 # Leetcode-Cookbook
-战五渣学习日志记录
-编程使用语言：python3
+**战五渣学习日志记录**
+
+算法：python3
+数据库：MySql
 
 0. Daily Question：题库Tab-每日一题，题库打卡部分，很多都不会所以跳过先不记录啦
 1. LeetCode Hot100：题库Tab-精选题单 LeetCode热题HOT100，https://leetcode-cn.com/problem-list/2cktkvj/

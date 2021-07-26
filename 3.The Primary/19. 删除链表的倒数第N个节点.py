@@ -23,3 +23,22 @@ class Solution:
         head.next = self.removeNthFromEnd(head.next, n)  # 递归调用
         self.count += 1  # 回溯时进行节点计数
         return head.next if self.count == n else head
+
+
+# 2021-07-25
+class Solution:
+    cur = 0
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        left, right = head, head
+        count = 0
+        while count < n:
+            right = right.next
+            count += 1
+        if not right:
+            return head.next
+        while right.next:
+            left = left.next
+            right = right.next
+        if left.next:
+            left.next = left.next.next
+        return head

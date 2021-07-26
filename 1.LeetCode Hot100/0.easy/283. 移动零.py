@@ -55,3 +55,18 @@ class Solution:
         while j< size:
             nums[j] = 0
             j +=1
+
+
+# 2021-07-24
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left, right = 0, 0
+        while right < len(nums):
+            if nums[right]:
+                nums[left], nums[right] = nums[right], nums[left]
+                left += 1
+            right +=1
+        return nums

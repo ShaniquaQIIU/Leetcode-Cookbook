@@ -16,3 +16,15 @@ class Solution:
             s = s.replace('[]', "")
             s = s.replace('{}', "")
         return len(s)==0
+
+# 2021-10-15 stack
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        par_map = {')': '(', ']': '[', '}': '{'}
+        for c in s:
+            if c not in par_map:
+                stack.append(c)
+            elif not stack or par_map[c] != stack.pop():
+                return False
+        return not stack

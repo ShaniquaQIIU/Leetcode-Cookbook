@@ -5,9 +5,12 @@
 # @File    : 412. Fizz Buzz.py
 
 # 写一个程序，输出从 1 到 n 数字的字符串表示。
-# 如果 n 是3的倍数，输出“Fizz”；
-# 如果 n 是5的倍数，输出“Buzz”；
-# 如果 n 同时是3和5的倍数，输出 “FizzBuzz”。
+# 如果n是3的倍数，输出“Fizz”；
+# 如果n是5的倍数，输出“Buzz”；
+# 如果n同时是3和5的倍数，输出 “FizzBuzz”。
+
+from typing import List
+
 
 class Solution:
     def fizzBuzz(self, n: int) -> List[str]:

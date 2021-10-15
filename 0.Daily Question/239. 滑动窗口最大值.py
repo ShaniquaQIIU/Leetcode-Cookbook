@@ -26,17 +26,37 @@ class Solution1:
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        deque = collections.deque()
-        ans = []
+        if not nums:
+            return []
+        deque, res = [], []
         for i, num in enumerate(nums):
-            if deque and deque[0] <= i-k:
-                deque.popleft()
-            while deque and nums[deque[-1]] < num:  # 移除比当前数小的数字索引
+            if deque and deque[0] <= i-k:  # 移出非当前窗口的数据
+                deque.pop(0)
+            while deque and nums[deque[-1]] < num:  # 移出比当前数小的索引
                 deque.pop()
             deque.append(i)
             if i >= k-1:
-                ans.append(nums[deque[0]])
-        return ans
+                res.append(nums[deque[0]])
+        return res
+
+
+# 2021-10-15
+import heapq
+
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        if not nums:
+            return []  # 判空
+        hp, res = [], []
+        for i, v in enumerate(nums):
+            while hp and hp[0][1] <= i-k:  # 移出非当前窗口的数据
+                heapq.heappop(hp)
+            heapq.heappush(hp, [-v, i])  # python是小顶堆，存负值转换为'大顶堆'
+            if i >= k-1:  # 最大值存入结果数组
+                res.append(-heapq[0][0])  # 再转回正值
+        return res
+
 
 if __name__ == '__main__':
     s = Solution()

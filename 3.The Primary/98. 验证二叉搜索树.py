@@ -27,3 +27,31 @@ class Solution:
         return left < root.val < right \
                and self.search(root.left, left, root.val) \
                and self.search(root.right, root.val, right)
+
+
+# 2021-10-17
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        inorder = self.inorder(root)
+        return inorder == list(sorted(set(inorder)))
+
+    def inorder(self, root):
+        if not root:
+            return []
+        return self.inorder(root.left) + [root.val] + self.inorder(root.right)
+
+
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        self.prev = None
+        return self.helper(root)
+
+    def helper(self, root):
+        if not root:
+            return True
+        if not self.helper(root.left):
+            return False
+        if self.prev and self.prev.val >= root.val:
+            return False
+        self.prev = root
+        return self.helper(root.right)

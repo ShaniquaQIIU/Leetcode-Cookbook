@@ -9,6 +9,8 @@
 # 可以认为区间的终点总是大于它的起点。
 # 区间 [1,2] 和 [2,3] 的边界相互“接触”，但没有相互重叠。
 
+from typing import List
+
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         if not intervals:

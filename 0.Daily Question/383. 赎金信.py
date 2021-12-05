@@ -14,6 +14,17 @@ from collections import Counter
 
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        return (r:=Counter(ransomNote)) & Counter(magazine) == r
+        r = Counter(ransomNote)
+        m = Counter(magazine)
+
+        for key in r:
+            if m.get(key, 0):
+                if m[key] < r[key]:
+                    return False
+            else:
+                return False
+
+        return True
+
 
 

@@ -6,6 +6,16 @@ where p1.Email = p2.Email and p1.Id > p2.Id;
 
 -- 注意删除和查询不直接使用同一张表，需嵌套查询一层
 -- You can't specify target table for update in FROM clause
+-- 错误写法
+-- delete
+-- from Person
+-- where Id not in (
+--    select min(Id)
+--    from Person tmp
+--    group by Email
+-- );
+
+
 delete
 from Person
 where Id not in (

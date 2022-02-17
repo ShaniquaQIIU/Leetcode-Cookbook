@@ -26,3 +26,14 @@ from
     on e.DepartmentId = d.Id
 ) s
 where s.rn = 1;
+
+-- 20220217 跟方法一类似
+select d.name Department, e1.name Employee, salary
+from Employee e1
+left join Department d
+on e1.departmentId = d.id
+where (departmentId, salary) in (
+    select departmentId, max(salary)
+    from Employee e2
+    group by departmentId
+)

@@ -12,3 +12,18 @@ from
     on e.DepartmentId = d.Id
 ) s
 where s.rn <= 3;
+
+-- 2022-02-17 跟我一个部门，且比我工资高的至多两人
+select d.Name as Department,e.Name as Employee,e.Salary as Salary
+from Employee e
+left join Department d
+on e.DepartmentId = d.Id
+where e.Id in
+(
+    select e1.Id
+    from Employee e1
+    left join Employee e2
+    on e1.DepartmentId = e2.DepartmentId and e1.Salary < e2.Salary
+    group by e1.Id
+    having count(distinct e2.Salary) <= 2
+);

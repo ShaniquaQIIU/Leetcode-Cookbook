@@ -40,8 +40,10 @@ class Solution:
                 return False
         return True
 
+
 if __name__ == '__main__':
     s = Solution()
-    nums = [1,2,3,3,3,4,5]
-    s.isPossible(nums)
+    nums = [1,3,3,3,4,5,6]
+    result = s.isPossible(nums)
+    print(result)
 

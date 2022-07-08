@@ -11,3 +11,20 @@ where u.Role = 'client'
     and u.Banned ='No'
 group by t.Request_at
 order by t.Request_at;
+
+-- bug: {"headers": ["Day", "Cancellation Rate"], "values": [[null, null]]}
+select t.request_at  'Day',
+round(sum(if(t.status!= 'completed', 1 ,0))/count(t.id), 2) 'Cancellation Rate'
+from
+(
+    select id, client_id, request_at, status
+    from Trips
+    where request_at between '2013-10-01' and '2013-10-03' ) t
+right join
+(
+    select users_id
+    from Users
+    where banned = 'No' and role = 'client') u
+on t.client_id = u.users_id
+group by t.request_at
+order by t.request_at;
